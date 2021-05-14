@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JS 성적처리</title>
+    <script>
+        //입력------(처리)------>추력
+        //input    process      output
+        //read     process       write
+
+        /* 한 사람의 성적을 입력받아 결과 출력
+        입력값 : 이름, 국어, 영어, 수학 점수(화면입력 prompt)
+        계산처리 : 총점, 평균
+        이름 : 홍길동
+        국어 : 100
+        영어 : 90
+        수학 : 80
+        -------
+        총점 : 270
+        평균 : 90.0 (소수점 이하 2자리까지)
+        *****/
+
+        //입력받기
+        var name = prompt("[prompt] 이름을 입력하세요", "name");
+        alert('입력한 값 : "' + name + '"');
+        var kor = prompt("[prompt] 국어 성적을 입력하시오", "00");
+        alert('입력한 값 : "' + kor + '"');
+        var eng = prompt("[prompt] 영어 성적을 입력하시오", "00");
+        alert('입력한 값 : "' + kor + '"');
+        var math = prompt("[prompt] 수학 성적을 입력하시오", "00");
+        alert('입력한 값 : "' + kor + '"');
+        
+        var total = parseInt(kor) + parseInt(eng) + parseInt(math);
+        var avg = parseInt(total) / 3;
+        var avg = avg.toFixed(2);
+        //어떻게 소수점 이하 2자리까지만 하지?
+        alert('"'+ name + '" 학생의 총점은 ' + total + 
+        '이고 평균은 ' + avg + '입니다'); // 강사님 꿀팁 : 변수에 또  저장하기 
+
+        var clear = confirm("[confirm] 입력한 성적 데이터를 삭제할까요?");
+        alert("답변결과 : " + clear); 
+        var result = clear ? "삭제되었습니다" : "데이터 유지됩니다";
+        alert("응답 결과 : " + result);
+
+    </script>
+</head>
+<body>
+    
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

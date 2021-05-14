@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JS 연산자</title>
+    <script>
+        // 증감연산자 : ++, --
+        var num = 100;
+        document.write("num : " + num, "<br>");
+
+        var res = ++num; //앞에다 쓰면 : num의값을 1증가시키고 res에 저장
+        document.write("res = ++num : " + res, "<br>");
+        document.write("num: "+ num);
+        //num의 값은 증가 되어있다.
+        document.write("<hr>");
+
+        num = 100;
+        document.write("num : " + num, "<br>");
+        res = num++; //풀어쓰면 num = num + 1;
+        //num은 res 100 넣고 +1 증가
+        document.write("res : " + res, "<br>");
+        document.write("num : " + num, "<br>");
+        document.write("res : " + res, "<br>");
+        document.write("<hr>");
+
+        //-------------------------
+        //부정연산자 : ! (not)
+        document.write("true : " + true, "<br>");
+        document.write("!true : " + !true, "<br>");
+        document.write("!false : " + !false, "<br>");
+        document.write("<hr>");
+
+        //산술연산자 : +, -, *, /, %(나머지 연산)
+        var num1 = 100;
+        var num2 = 3;
+        document.write("num1 : " + num1, ", num2: "+num2, "<br>");
+        document.write("num1 + num2 : " + (num1 + num2), "<br>");
+        document.write("num1 - num2 : " + (num1 - num2), "<br>");
+        document.write("num1 * num2 : " + (num1 * num2), "<br>");
+        document.write("num1 / num2 : " + (num1 / num2), "<br>");//33.33333333
+        document.write("num1 % num2 : " + (num1 % num2), "<br>");
+        document.write("num1 ** num2(제곱) : " + (num1 ** num2), "<br>"); //제곱
+        //자바와의 차이점 int/int = int 인데 /
+        //자바스크립트 에서는 소숫점까지 다 나온다!
+        document.write("<hr>");
+
+        //------------
+        //문자열(숫자만 있는) 숫자타입 변환
+        var str = "100"; // 문자열(String)
+        str = str + 1; // 문자열 붙이기 연산 처리
+        document.write("str : " + str + " - "+ typeof str, "<br>"); //1001 ('100' + '1')
+
+        str = "100";
+        // str = (str * 1) + 100; //숫자형태 문자열에 곱하기 1 연산 : 형변환 
+        //근데 이건 잘 안씀!!
+
+        //Number() 메소드(함수) 이용 ( 이걸 추천!!! )
+        str = Number(str) + 200; 
+        document.write("str : " + str + " - "+ typeof str, "<br>");
+
+        //parseInt() 메소드(함수) 이용
+        str = parseInt(str) + 200; 
+
+        document.write("<hr>");
+
+        //------------------------------
+        //대입연산자(복합) : =, +=, -=, *=, /=, %=
+        num = 100;
+        num2 = 3;
+        document.write("num: "+ num + ", num2 : " + num2, "<br>");
+
+        var result = num;
+        document.write("result : " + result, "<br>");
+
+        result += num2; //풀어쓰면 result = result + num2;
+        //이런 작업 정말 많이함 ! 간단하게 작성한 것일 뿐
+        document.write("result += num2 : " + result, "<br>");
+        result -= num2;
+        document.write("result -= num2 : " + result, "<br>");
+        result *= num2;
+        document.write("result *= num2 : " + result, "<br>");
+        result /= num2;
+        document.write("result /= num2 : " + result, "<br>");
+        result %= num2;
+        document.write("result %= num2 : " + result, "<br>");
+
+        document.write("<hr>");
+
+        //===============================================
+        //비교연산자 : >, <, >=, <=, ==, !=, ===,  !==
+        //== : 값 일치 true(!= 값이 다르면 true)
+        //=== : type까지 비교한다!!!! 
+        //      값 일치하고(and) 타입이 동일한 경우 true
+        //!== : 값 불일치 또는(or) 타입이 다를 경우 true
+
+        //100 !== 50  : 값이 다르니까 타입은 체크할 필요도 없이 true?
+        // "100" !== 100 : 값은 같으나 타입이 다르니 true
+        //100 === 100 : true
+        //"100" === 100 : false
+
+        //100을 변수라고 생각하고 보기
+        document.write('100 == 100 : ' + (100 == 100) + "<br>" ); 
+        document.write('100 == "100" : ' + (100 == "100") + "<br>" ); //값만 비교 했으니 true
+        document.write('100 != 100 : ' + (100 != 100) + "<br>" ); 
+        document.write('100 != "100" : ' + (100 != "100") + "<br>" ); 
+        document.write("<hr>");
+        document.write("******** ===, !== 비교 ********" + "<br>");
+        document.write("<hr>");
+
+        document.write('100 === 100 : ' + (100 === 100) + "<br>" ); 
+        document.write('100 === "100" : ' + (100 === "100") + "<br>" ); //값만 비교 했으니 true
+        document.write('100 !== 100 : ' + (100 !== 100) + "<br>" ); 
+        document.write('100 !== "100" : ' + (100 !== "100") + "<br>" ); 
+
+        //w3school : JS number methods
+        /*
+        Number(true);          // returns 1
+        Number(false);         // returns 0
+        Number("10");          // returns 10
+        Number("  10");        // returns 10 -- 공백무시
+        Number("10  ");        // returns 10
+        Number(" 10  ");       // returns 10
+        Number("10.33");       // returns 10.33
+        Number("10,33");       // returns NaN --컴마(,)는 숫자아니다 
+        Number("10 33");       // returns NaN --숫자 사이에 있는 공백도 숫자 아니다
+        Number("John");        // returns NaN --문자열을 당연히 숫자 아니다!
+        */
+        
+    </script>
+</head>
+<body>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

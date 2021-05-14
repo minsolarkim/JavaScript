@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> JS script </title>
+    <script>
+        //한 줄 주석 : JavaScript는 script 태그 안에 작성한다. (약속!)
+        /*
+            여러 줄 주석
+            자바스크립트 코드는 대소문자 구분하여 처리함
+
+            *핵심 포인트*
+            1.문장의 끝 ;
+            2.줄 바꿈 <br>
+            3.'', "" 사용법
+        */
+        document.write("----head 태그의 자바스크립트 시작----");
+        document.write("<hr>")
+        document.write("\"JavaScript\" 만나서 반가워요~<br>");
+        document.write('"JavaScript" 만나서 반가워요<br>');
+        // 역슬래쉬 쓰면 문자\" 표현 가능
+        // 사실 '' 랑 " " 둘 다 쓸 수 있기 때문에 
+        // 안쪽에 ""를 쓰려면 바깥쪽을 ''로
+        //        ''을 쓰려면 바깥쪽을 ""로 쓰면 된다.
+        document.write("HTML, CSS 끝 \n JavaScript 시작<br> ");
+        // \n = 제어문자로는 뉴라인 처리가 되지만
+        // 브라우저 상에서 읽고 해석할 때 줄바꿈 안된다.!!!!
+        //<br>처리 해주는게 좋다!! 
+        document.write("----head 태그의 자바스크립트 끝----");
+
+    </script>
+</head>
+<body>
+    <h1>h1태그 : JavaScript 처음 사용</h1>
+    <script>
+        // sysout 역할과 비슷하다고 보면 됨
+        document.write("<h2>자바스크립트 h2태그</h2>");
+        document.write("<p>자바스크립트 p태그</p>");
+        document.write("자바스크립트로 작성된 문장");
+        document.write("자바스크립트로 태그없이 작성된 문장");
+        // 이렇게 하면 자동으로 이어서 붙어서 출력됨
+        
+    </script>
+
+</body>
+</html>

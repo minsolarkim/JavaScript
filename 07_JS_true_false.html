@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JS : true, false</title>
+    <script>
+        //자바스크립트만의 독특한 점***8
+        //true, false
+        //JS에서는 : false가 아니면 모두 true!!!!!!
+        //false 값 : false, 0 또는 -0, undefined, NaN, null, ""(빈문자열) ---> 나머지는 다 true
+        //false값을 외우는 게 편하다!
+        
+        //true 값 : false가 아니면 모두 true
+        document.write('<h3>false 값 : false, 0 또는 -0, undefined, NaN, null, ""(빈문자열)</h3>');
+        document.write("false : " + Boolean(false), "<br>");
+        document.write("0 : " + Boolean(0), "<br>");
+        document.write("-0 : " + Boolean(-0), "<br>");
+        document.write("100 - 100 : " + Boolean(100 - 100), "<br>");
+        document.write("undefined : " + Boolean(undefined), "<br>");
+        document.write("NaN : " + Boolean(NaN), "<br>");
+        document.write("null : " + Boolean(null), "<br>");
+        document.write("''(빈문자열) : " + Boolean(''), "<br>");
+        document.write("<hr>");
+
+        //-----------------------------
+        document.write('<h3> true 값 : false가 아니면 모두 true </h3>');
+        document.write("true : " + Boolean(true),"<br>");
+        document.write("1 : " + Boolean(1),"<br>");
+        document.write("100 : " + Boolean(100),"<br>");
+        document.write("test : " + Boolean("test"),"<br>");
+        document.write("100+200 : " + Boolean("100+200"),"<br>");
+        document.write("<hr>");
+
+    </script>
+</head>
+<body>
+    
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

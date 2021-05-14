@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JS 변수선언</title>
+    <script>
+        /*변수선언 키워드(명령어) : var, let, const
+        var(변수)(function = 메소드(객체지향에선)), 
+        let(중괄호) {},  const(상수)
+        */
+       //변수명 사용문자 : 영문대소문자, 숫자, _, $
+       //기본자료형 : 문자열(String), 숫자(number), 불린(boolean)
+       var str = " Hi (문자열)";
+       var num = 100;
+       var bool = true;
+       var vNull = null;
+       var undef;
+       //문자를 담으면 문자타입, 숫자를 담으면 숫자타입
+       document.write("문자열 출력 : " + str +"<br>");
+       // + 해서 붙여줘도 되고 , 해서 나열 해줄 수도 있다?
+       document.write("숫자값 출력 : " + num +"<br>");
+       document.write("숫자값 출력 : " + num + 1 +"<br>");
+       document.write("숫자값 출력 : " + (num + 1)+"<br>");
+       document.write("bool 출력 : " + bool +"<br>");
+       document.write("vNull 출력 : " + vNull +"<br>");
+       document.write("undef 출력 : " + undef +"<br>");//undefined
+       document.write("<hr>");
+
+        //변수 타입 확인 : typeof
+        document.write("typeof str : " + typeof str, "<br>");//string
+        document.write("typeof num : " + typeof num, "<br>");//number
+        document.write("typeof bool : " + typeof bool, "<br>");//bool
+        document.write("typeof vNull : " + typeof vNull, "<br>");//object
+        document.write("typeof undef : " + typeof undef, "<br>");//undefined
+
+        document.write("<hr>");
+        document.write("<h2 >자바스크립트에서는 타입을 엄격하게 구분하지 않는다!!!!!</h2>");
+        document.write("<hr>");
+
+        //변수에 고정된 타입의 개념이 없음
+        str = 500; // 변수타입 변경됨 string -> number
+        str = str + 200;
+        document.write("typeof str :" + str + ", " + typeof str, "<br>");
+
+        str = true;
+        document.write("typeof str :" + str + ", " + typeof str, "<br>");
+
+        var sum = num + str ; //100 + true ---> 101 : true값은 1
+        document.write("합계(100 + true) :" + sum, "<br>"); //101이 멀쩡히 나옴
+        //true값이 1이라는 것!?
+
+        sum = num + false; // 100 + false ---> 100 : false값은 0
+        document.write("합계(100 + false) :" + sum, "<br>");
+        document.write("<hr>");
+
+        //-------------------
+        //변수의 반복선언이 허용됨(var)
+        var sum = 0; // 변수 중복 선언 및 사용이 가능 (var)
+        //var 사용할 때는 위쪽에서 사용하고 있는 게 아닌지! 이런거 개발자가 알아서 잘 관리 해야한다!!
+        sum = sum + 10;
+        document.write("sum : " + sum, "<br>");
+        document.write("<hr>");
+        
+        //----------------------------
+        //NaN(Not a Number) : 숫자가 아님 - 연산결과 숫자 아닌 경우
+        document.write("num + undef : " + (num + undef), "<br>"); //100 + undef = NaN (숫자가 아니다!)
+        document.write("num * 'A' : " + (num * 'A') + "<br>"); //결과 : NaN 
+        document.write("'A' * 'B' : " + ('A' * 'B') + "<br>"); //결과 : NaN
+        //오류가 난 것은 아니다! *숫자가 아닐 뿐*
+
+        //자바스크립트에서 오류가 발생하면 이후의 스크립트는 실행 안됨
+        document.wwwww("<p>---------JavaScript 끝--------</p>"); //이런식으로 오타나면 브라우저 검사에서 오류나있음 wwwww is not a function 
+        //그러면 그 뒷쪽에 있는 것들이 작동을 안 한다.
+        document.write("<p>---------JavaScript 끝--------</p>");
+    </script>
+</head>
+<body>
+    <h1>자바스크립트의 변수 선언</h1>
+</body>
+</html>
