@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>var, let, const</title>
+    <script>
+        //var : 변수 사용범위 function 레벨
+        //let, const :변수 사용범위 {} 기준
+        //const : 상수화된 변수 (자바에서 final 선언과 유사)
+
+        //var 변수 : 변수선언문 이전에도 사용 가능하고 중복 선언도 가능
+        document.write("변수 선언문 이전 varNum : " + varNum, "<br>");
+        var varNum = 100;
+        var varNum = 200; //중복선언 허용(단, 의도적으로 사용하지 말 것)
+        //허용은 되나 쓰지 않는 게 좋다 
+        document.write("변수 선언문 이후 varNum : " + varNum, "<br>");
+        document.write("<hr>");
+
+        //=========================
+        //ECMAScript6에서 추가된 변수 선언문 : let, const
+        //let, const : 변수 선언문 이후에만 사용 가능, 중복선언 안됨
+        //-------------------------
+        // document.write("let 변수 선언 전 : " + letNum, "<br>");
+        //ㄴ이게 안 됨 
+        //Cannot access 'letNum' before initialization
+
+        let letNum = 100;
+        // let letNum = 999; 
+        //Identifier 'letNum' has already been declared
+        document.write("let 변수 선언 후 : " + letNum, "<br>");
+
+        //-====================
+        // const CONST_VAR;
+        // document.write("const CONST_VAR : " + CONST_VAR, "<br>");
+        //값을 할당 안 해서 (초기화 안 했다)
+        // Missing initializer in const declaration
+
+        //그래서 선언과 동시에 초기화 해줘야 한다.
+        // const CONST_VAR = 100;
+        // document.write("const CONST_VAR : " + CONST_VAR, "<br>");
+
+        const CONST_VAR = "const변수는 처음 한 번만 값 설정 가능";
+        document.write("const CONST_VAR : " + CONST_VAR, "<br>");
+
+        // CONST_VAR = "const 변수값 재할당";
+        //Assignment to constant variable.
+        //오류
+        
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

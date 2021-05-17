@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>while, do-while</title>
+    <script>
+       //while(조건식){}
+       //do - while(조건식){} -- 무조건 한 번은 실행되어야함 
+       //----------------------
+       //while문으로 1~10까지의 합 구하기
+       let num = 1; //1~10까지 1씩 증가
+       let sum = 0; //합계값 저장
+       while(num <= 10){
+           sum += num; // sum = sum + num;
+        //    document.write("num: " + num + ", sum : " + sum + "<br>");
+        //중간중간 확인하고 싶으면 이렇게 만들어주면 된다. --> 그러고 나서 주석처리
+           num++;
+       }
+       document.write("1~10까지의 합 : " + sum + "<br>");
+       document.write("<hr>");
+
+       //for문과의 차이점 
+       //for문은 초반에 선언부에서 얼만큼 반복할 건지 대충 눈에 보임
+       //while문은 그렇지 않다 --> 코드를 다 읽어야 반복문이 어떻게 돌아가는 지 보임 --> 그리고 초기값을 어떻게 주느냐에 따라서 코드의 순서가 바뀐다?
+
+       sum = 0;
+       num = 0;
+       //(실습)위의 while문과 동일한 결과를 만드는 while문 작성
+       //1~10까지의 합계 구하기
+       while(num < 10){ // <=에서 <으로 바뀜 --바뀌는 점2
+           num++; // 이게 먼저 나옴!! --바뀌는 점1
+           sum += num;
+           document.write("num: " + num + ", sum : " + sum + "<br>");
+    }
+       document.write("1~10까지의 합 : " + sum + "<br>");
+       document.write("<hr>");
+
+        //=================================
+        //do { }    while (조건식){ };
+        //1~10까지의 합 구하기
+        sum = 0;
+        num = 1;
+        do {
+            sum += num;
+            num++;
+        }while ( num <= 10 );
+        document.write("1~10까지의 합 : " + sum + "<br>");
+        document.write("<hr>");
+
+        //===================
+        //반복문 제어 : break, continue
+        //break : 반복문을 종료하고 빠져나감
+        //continue : continue문 이후의 명령문을 실행하지 않고 다음 반복 진행
+        document.write("<h2>break, continue</h2>");
+        document.write("<h3>---break---</h3>");
+        num = 1;
+        while( num <= 10 ){
+            document.write("num : " + num, "<br>");
+            if(num == 5){
+                document.write(">> break문을 만나서 반복 종료", "<br>");
+                break;
+            }
+            num++;
+        }
+
+        document.write("<h3>---continue---</h3>");
+        num = 1;
+        while( num <= 10 ){
+            num++;
+            if(num != 5){
+                document.write(">> continue문을 만나서 5만 출력 안 함", "<br>");
+                continue; //continue문을 잘못 사용하면 무한루프에 빠진다.
+            }
+            document.write("num : " + num, "<br>");
+        }
+        document.write("<hr>");
+
+        //==========================
+        //중첩 반복문 사용시 모든 반복문 빠져나가기
+        //외부반복문에 라벨(별칭) 지정해서 사용
+        
+        outer : for( let i = 1; i <= 5; i++){
+            for(let k = 11; k <= 15; k++){
+                if(i == 4 && k == 13){
+                    break outer; //중단할 반복문 지정 
+                }
+                document.write("i : " + i + ", k : "+ k, "<br>");
+            }
+            document.write("<br>");
+        }
+
+        document.write("=======JavaScript 끝=========");
+
+
+    </script>
+</head>
+<body>
+    
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

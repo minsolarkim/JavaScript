@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JS : 익명함수</title>
+    <script>
+        //익명함수 : 함수 선언시에 이름이 정의되지 않은 함수
+        // function () {}
+        // function (매개변수) {}
+        // 익명함수는 이름이 없기 때문에 변수에 저장하지 않으면 재사용 못함!!! (호출이 불가능!!!)
+        var str = "전역변수 str";
+
+        var fn = function(param, parma2){
+            document.write("익명함수-매개변수값 : " + param + parma2, "<br>");
+        };
+        //변수에 함수가 저장되어있음 (단순 문자열, 숫자열이 아니라)
+        fn("매개1", ", 매개2"); //변수명으로 변수에 저장된 함수 호출 
+        //====================================================
+        
+    </script>
+</head>
+<body>
+    
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

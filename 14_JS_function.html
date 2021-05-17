@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JS function(함수)</title>
+    <script>
+        
+        //var 선언 변수도 선언문 이전에 사용 가능 : var변수 hoisting
+        //단 변수면 선안만 끌어올려짐(hoisting)
+        document.write(":: var 선언 전 globalVar : " + globalVar, "<br>");
+        //선언 전에도 사용 가능은 함! 대신 값이 할당되기 전이니까 값은 없음 
+        //==선언문 이전에도 사용할 수는 있다 
+        //그치만 선언 안했으니까 무조건 오류난다
+
+        //var 선언 변수
+        var globalVar = "전역변수 globalVar"; 
+        //보통 이렇게 먼저 선언해놓고 시작한다!!
+        document.write(":: var 선언 후 globalVar : " + globalVar, "<br>");
+
+        //var 키워드 생략하고 변수 선언 사용 가능하나, 명시적으로 var 사용 권장
+        globalVar2 = "전역변수 globalVar2";
+        document.write(":: var 선언없이 globalVar2 : " + globalVar2, "<br>");
+
+        //함수사용(호출) : 함수 선언문 이전에 사용(호출) = 함수 hoisting 
+        displayMsg();
+
+        //function 선언
+        //function 함수명([매개변수1, 매개변수2, ..., 매개변수n]){}
+        function displayMsg(param){
+            document.write("----function displayMsg() 시작 -----", "<br>");
+            document.write("파라미터 param : "+param, "<br>");
+
+            document.write(":: 함수 내에서 사용 globalVar : " + globalVar, "<br>");
+
+            //함수내에서 선언된 var 변수는 지역변수(사용범위 : 함수 내에서만 )
+            var localVar = "function 내에서만 사용되는 지역변수";
+            document.write("--:: localVar : " + localVar, "<br>");
+
+            //함수 내에서 선언된 변수(var 선언 없이 선언된 변수) : 전역변수(권장)
+            //(권장) 명시적으로 var 사용(전역변수 function 외부에서 선언)
+            localNoVar = "function 내에서 선언된 변수(var 없이) - 전역변수";
+            document.write("--:: localNoVar : " + localNoVar, "<br>");
+            
+            document.write("----function displayMsg() 끝 -----", "<br>");
+        }
+
+        //함수 밖에서 사용해보면 
+        //함수 한 번 호출되고 끝났어요 
+        //locarVar is not defined라고 뜸
+        // document.write("--:: 함수 밖에서 localVar : " + localVar, "<br>");
+        
+        //==함수내세 선언된 var 변수는 함수외부에서는 사용 못함 : locarVar is not defined 
+        document.write("--:: 함수밖에서 localNoVar : "+ localNoVar, "<br>");
+
+        document.write("<hr>");
+        displayMsg("param~~~~~");
+
+        document.write("<hr>");
+        displayMsg("param11111","param2222","param3333");
+        //받을 수 있는게 하나여서 나머지는 버려짐
+        //오류는 안 나고 실행은 되는데 뒤에 꺼가 나타나진 않음
+    </script>
+</head>
+<body>
+    
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
