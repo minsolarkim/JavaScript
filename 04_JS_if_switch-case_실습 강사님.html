@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script>
+        // 실습 : 점수를 입력받고 점수에 따라 평가하고 결과를 화면에 출력(표시)
+        // 90점 이상 : A, 80점 이상 : B , 70점 이상 : C, 70점 미만 : D
+        // 출력 형태 : 점수 90 - 평가결과 : A
+        // if (조건식) else if() {} else if () {} else {}
+
+        // alert("점수를 입력하시오: ");
+        var jumsu = prompt("[prompt] 점수를 입력하세요(0~100) : ", "0");
+        let result = "평가안됨"; //디폴트값 지정해주기
+        
+        //이렇게 먼저 걸러줘도 됨
+        if( isNaN(jumsu) ){ 
+            //isNaN 함수 --숫자 들어오는지 확인 처리 *'true'랑 '(빈문자열)'도 숫자 처리 됨 ==> 완벽하진 않음
+            result = "숫자가 아님 (NaN)";
+        } else if ( jumsu < 0 || jumsu > 100){
+            result = "[입력오류] 0~100까지의 숫자 입력";
+        } else if(jumsu >= 90){ 
+            result = "A"; //달라지는 부분은 변수 처리
+        } else if(jumsu >= 80){ 
+            result = "B";
+        } else if(jumsu >= 70){
+            result = "C";
+        } else if(jumsu >= 0) {
+            result = "D"; 
+        } else {
+            result = "[입력오류] 0~100까지의 숫자 입력"; };
+
+        document.write("점수 "+jumsu+" - 평가결과 : "+result, "<br>");
+        document.write("<hr>");
+
+        let divJumsu = Math.floor(jumsu / 10); // 88 / 10 -> 8.8 -> 8 (내림처리 - floor)
+        switch(divJumsu){
+            case 10 : 
+                // result = "A";
+                // break; 
+                // 결과 똑같으면 결과 생략 가능 or 옆으로 나열 가능 
+            case 9 : 
+                result = "A";
+                break;
+            case 8 : 
+                result = "B";
+                break;
+            case 8 : 
+                result = "C";
+                break;
+            default :
+                result = "D";
+                break;
+        }
+        document.write("점수 "+jumsu+" - 평가결과 : "+result, "<br>");
+        document.write("<hr>");
+
+        //문자열끼리의 비교
+        /*
+        "100" > "20" : false
+        (문자열은 좌측정렬이여서 왼쪽부터 비교) 1 < 2
+        100 > 20 : true
+        "100" > 20 : ?
+        문자열 기준 vs 숫자열 기준 잡느냐에 따라 결과 달라짐
+        ==> 문자열과 숫자열 비교하면 자동으로 형변환돼서 숫자열로 비교해줌!
+        */
+        document.write("-----숫자문자열 vs 숫자------<br>")
+        document.write("'100' > '20' : " + ('100' > '20'), "<br>"); //false
+        document.write("100 > 20 : " + (100 > 20), "<br>"); //true
+        document.write("'100' > 20 : " + ('100' > 20), "<br>"); //true
+
+        //만약 숫자열로 바꿀 수 없는 문자열이라면?
+        document.write("-----문자열 vs 문자열------<br>")
+        document.write("'100A' > '20' : " + ('100A' > '20'), "<br>"); //false
+        document.write("'A100' > '20' : " + ('A100' > '20'), "<br>"); //true
+        document.write("'AAA' > '20' : " + ('AAA' > '20'), "<br>"); //true
+        document.write("'100B' > 100A : " + ('100B' > '100A'), "<br>"); //true (B랑 A 비교니깐)
+       
+        document.write("-----문자열(숫자 아닌) vs 숫자------<br>")
+        document.write("'100A' > 20 : " + ('100A' > 20), "<br>"); //false
+        document.write("'A100' > 20 : " + ('A100' > 20), "<br>"); //false
+        document.write("'AAA' > 20 : " + ('AAA' > 20), "<br>"); //false
+        //==비교 자체가 안된다!
+        document.write("<hr>");
+
+        
+        document.write("자바스크립트 끝!!!!","<br>");
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

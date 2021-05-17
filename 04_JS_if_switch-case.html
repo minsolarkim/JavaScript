@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script>
+        // 실습 : 점수를 입력받고 점수에 따라 평가하고 결과를 화면에 출력(표시)
+        // 90점 이상 : A, 80점 이상 : B , 70점 이상 : C, 70점 미만 : D
+        // 출력 형태 : 점수 90 - 평가결과 : A
+        // if (조건식) else if() {} else if () {} else {}
+
+        // alert("점수를 입력하시오: ");
+        var input = prompt("[prompt] 점수를 입력하세요(0~100) : ", "0");
+        if(input >=90){ var grade = "A"} 
+        else if(input >=80){ var grade = "B"} 
+        else if(input >= 70){var grade = "C"}
+        else{var grade = "D"};
+        document.write("점수 "+input+" - 평가결과 : "+grade);
+
+
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>
