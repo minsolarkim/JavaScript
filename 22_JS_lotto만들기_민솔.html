@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JS 실습 : 로또 만들기</title>
+    <script>
+        
+    </script>
+    <style>
+        /* 공에 공통 적용 스타일 */
+        .ball {
+            width: 100px; height: 100px;
+            border: 1px solid black;
+            display: inline-block; 
+            /* 크기를 가지도록 block줘야함 */
+            border-radius: 50%; /* 원형으로 */
+            font-size: 3rem;
+            color : white;
+            text-align: center;
+            line-height: 100px;
+            /* ㄴ위 아래 중앙정렬 된다 */
+            margin: 10px;
+        }
+        .ball0 {
+            background-color: red;
+        }
+        .ball1 {
+            background-color: magenta;
+        }
+        .ball2 {
+            background-color: rgb(235, 235, 72);
+        }
+        .ball3 {
+            background-color: green;
+        }
+        .ball4 {
+            background-color: blue;
+        }
+        .ball5 {
+            background-color: violet;
+        }
+    </style>
+    <script>
+        /* (실습) 로또 번호 만들고 화면 출력 
+        1. 로또번호 저장할 배열을 먼저 만들고,
+        2. 1~45 숫자 중 중복되지 않는 숫자 생성해서 배열에 저장
+            2-1. 1~45 숫자 중 랜덤하게 숫자를 만들고 
+            2-2. 중복된 값이 있으면 다시 생성해서 6개의 번호를 배열에 저장
+        3. 화면 출력 HTML div 태그에 ball ball + 숫자 클래스명 사용
+        *********/
+       document.write("<h3>JavaScript 사용 로또번호 만들기</h3>");
+        
+    
+        // function onlyUnique(value, index, self){
+        //     return self.indexOf(value) === index;
+        // }
+
+        var lotto = [];
+        for(let i = 0; i < 6; i++ ){
+            var lottoNum = Math.floor(Math.random() * 45) + 1;
+            //5 넣어보면 0~4까지만 나오는 걸 알 수 있다 
+            // 그래서 + 1;
+                lotto[i] = lottoNum;
+            
+            // document.write('lotto['+i+'] : ' + lotto[i]+'<br>');
+            // document.write('<div class = "ball ball0">lotto['+ i+ '] : ' + lotto[i],'</div>');
+            // lotto.sort();
+            // Array.from(new Set(lotto));
+            // var unique = lotto.filter(onlyUnique);
+
+            document.write('<div class="ball ball'+i+'">'+lotto[i]+'</div>');
+
+        }
+        //문제점 : 가끔 undefined 나오고 중복제거 안 됐다 + 순서 정렬도 해야함
+
+        // for(let a = 1; a < 6; a++){
+        //     let num = [];
+        //     for(let j = 0; j< 999; j++){
+        //         let randomNum = Math.floor(Math.random() * 45) + 1;
+        //         if(num.indexOf(randomNum) == -1){
+        //             num.push(randomNum);
+        //             if(num.length == 6){
+        //                 break;
+        //             }
+        //         }
+        //     }
+        // }
+        
+        // function sortNum(a,b){
+        //     return a - b;
+        // }
+        // num.sort(sortNum);
+        // console.log(a + "번째 로또 번호는 " + "[ " + num + "]");
+
+
+
+    //    document.write('<div class="ball ball0">5</div>');
+    </script>
+</head>
+<body>
+    <h2>로또번호 만들기(문제)</h2>
+    <p>1~45 까지의 숫자 중에 6개를 추출해서 만들기</p>
+    <h2>로또번호</h2>
+    <div class="ball ball0">5</div>
+    <div class="ball ball1">9</div>
+    <div class="ball ball2">16</div>
+    <div class="ball ball3">22</div>
+    <div class="ball ball4">29</div>
+    <div class="ball ball5">44</div>
+   
+
+
+
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

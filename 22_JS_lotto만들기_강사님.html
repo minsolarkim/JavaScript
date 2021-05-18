@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JS 실습 : 로또 만들기</title>
+    <script>
+        
+    </script>
+    <style>
+        /* 공에 공통 적용 스타일 */
+        .ball {
+            width: 100px; height: 100px;
+            border: 1px solid black;
+            display: inline-block; 
+            /* 크기를 가지도록 block줘야함 */
+            border-radius: 50%; /* 원형으로 */
+            font-size: 3rem;
+            color : white;
+            text-align: center;
+            line-height: 100px;
+            /* ㄴ위 아래 중앙정렬 된다 */
+            margin: 10px;
+        }
+        .ball0 {
+            background-color: red;
+        }
+        .ball1 {
+            background-color: magenta;
+        }
+        .ball2 {
+            background-color: rgb(235, 235, 72);
+        }
+        .ball3 {
+            background-color: green;
+        }
+        .ball4 {
+            background-color: blue;
+        }
+        .ball5 {
+            background-color: purple;
+        }
+    </style>
+    <script>
+        /* (실습) 로또 번호 만들고 화면 출력 
+        1. 로또번호 저장할 배열을 먼저 만들고,
+        2. 1~45 숫자 중 중복되지 않는 숫자 생성해서 배열에 저장
+            2-1. 1~45 숫자 중 랜덤하게 숫자를 만들고 
+            2-2. 중복된 값이 있으면 다시 생성해서 6개의 번호를 배열에 저장
+        3. 화면 출력 HTML div 태그에 ball ball + 숫자 클래스명 사용
+        *********/
+       document.write("<h3>JavaScript 사용 로또번호 만들기</h3>");
+        
+       //1. 로또번호 저장할 배열을 먼저 만들고,
+       var lotto = new Array();
+       document.write("lotto.length : " + lotto.length, "<br>");
+        
+       /*2. 1~45 숫자 중 중복되지 않는 숫자 생성해서 배열에 저장
+            2-1. 1~45 숫자 중 랜덤하게 숫자를 만들고 
+            2-2. 중복된 값이 있으면 다시 생성해서 6개의 번호를 배열에 저장
+            */
+        // let lottoNum = Math.floor(Math.random() * 45) + 1;
+        // lotto[0] = lottoNum;
+
+        // document.write("lotto : " + lotto,"<br>");
+        // document.write("lotto.length : " + lotto.length, "<br>");
+
+        // let lottoNum = Math.floor(Math.random() * 45) + 1;
+        // lotto[1] = lottoNum; 
+        // //반복 해야되는 부분 이 두 줄
+        // document.write("lotto : " + lotto,"<br>");
+        // document.write("lotto.length : " + lotto.length, "<br>");
+        // //이 두 줄은 그냥 확인용이였음 
+
+        //반복문 돌려준다
+        // for(let i = 0; i<6; i++){
+        //     let lottoNum = Math.floor(Math.random() * 45) + 1;
+        //     lotto[i] = lottoNum;
+        // }
+        // document.write("lotto : " + lotto,"<br>");
+        // document.write("lotto.length : " + lotto.length, "<br>");
+
+        //사실 while문 쓰는 게 좋다 -- 6개가 될 때 까지!!
+        while(lotto.length < 6){
+            let lottoNum = Math.floor(Math.random() * 45) + 1;
+            //중복값 여부 확인 후 중복이면 입력하지 않고 다시 작업
+            
+            //우리가 직접 만든 함수 사용
+            // if(!isExist(lotto, lottoNum)){ //! = 배열에 중복값 없으면(false면)
+            //     lotto[lotto.length] = lottoNum;
+            // }
+            // lotto[i] = lottoNum; -- i가 없기 때문에 
+            // lotto.length 0에서 시작해서 5까지 가니까 (6개)
+
+            //Array가 가지고 있는 메소드 사용 (만들 필요 없다)
+            if(!lotto.includes(lottoNum)){ //lotto 배열에 lottoNum이 (있냐), 없냐!-->없으면 넣는다.
+                lotto[lotto.length] = lottoNum; 
+            }
+        }
+        document.write("lotto : " + lotto,"<br>");
+        document.write("lotto.length : " + lotto.length, "<br>");
+
+        //배열에 중복값이 있는지 여부 확인 --> 이럴 때 함수를 만든다!
+        // function isExist(arr, num){ //배열도 전달받고 숫자도 받겠다..?--> 하면 다른 배열에서도 쓸 수 있다!
+        //     for(let i = 0; i < arr.length; i++){
+        //         let result = false; //리턴값 저장할 변수 만들기
+        //         if(arr[i] == num){ //같은 값 있는 경우 
+        //             result = true; 
+        //             break; //더 비교할 필요가 없다.
+        //         }
+        //         //같은 값 없으면 그냥 진행됨 
+        //         return result;
+        //     }
+        // }
+
+        //3. 화면 출력 HTML div 태그에 ball ball + 숫자 클래스명 사용
+
+        // 정렬 
+        // lotto.sort(); //이렇게만 하면 문자열 정렬 기준이라서 제대로 안 됨 (첫째자리 수만 비교함)
+        lotto.sort(function(a, b){
+            // return b - a; //내림차순 정렬
+            return a - b; //오름차순 정렬
+        });
+
+        // lotto.sort();
+        // lotto.reverse();
+        //이렇게 하면 내림차순 정렬 된다.?
+
+        // document.write('<div class="ball ball'+ 0 + '">' + lotto[0] + '</div>'); --> 이걸 반복 돌려주면 된다
+        for (let idx in lotto){ //이렇게 써주는게 간단하다
+            document.write('<div class="ball ball'+ idx + '">' + lotto[idx] + '</div>');
+
+        }
+
+    </script>
+</head>
+<body>
+    <h2>로또번호 만들기(문제)</h2>
+    <p>1~45 까지의 숫자 중에 6개를 추출해서 만들기</p>
+    <h2>로또번호</h2>
+    <div class="ball ball0">5</div>
+    <div class="ball ball1">9</div>
+    <div class="ball ball2">16</div>
+    <div class="ball ball3">22</div>
+    <div class="ball ball4">29</div>
+    <div class="ball ball5">44</div>
+   
+
+
+
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

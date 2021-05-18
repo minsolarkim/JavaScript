@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JS: Object</title>
+    <script>
+        var str = null;
+        document.write("typeof str : " + typeof str, "<br>");
+        document.write("<hr>");
+
+        //object : 객체 사용법
+        //객체 선언 및 사용법
+        var tv = new Object();
+        document.write("typeof tv : " + typeof tv, "<br>");
+        //동적으로 만들 수 있다
+        tv.width = 1500; //tv 객체에 width 속성 추가되고 + 값 설정됨
+        tv.height = 700;
+        tv.color = "black";
+        //변수에 고정된 타입이 있는 게 아니기 때문에 숫자열, 문자열 다 가능
+        tv.on = function(){
+            document.write("TV 전원 ON" + "<br>");
+        };
+        tv.off = function(){
+            document.write("TV 전원 off" + "<br>");
+        };
+
+        //객체의 속성값 사용 방식1 : 객체.속성명
+        //()사용 안 하고 출력
+        document.write("tv.width : " + tv.width + "<br>");
+        document.write("tv.height : " + tv.height + "<br>");
+        document.write("tv.color : " + tv.color + "<br>");
+
+        //객체 기능 (메소드, function) 사용
+        tv.on();
+        tv.off();
+
+        document.write("<hr>");
+        //=============================
+        //속성의 유무 확인 : "속성명" in 객체 
+        document.write("tv에 color 속성 유무 : " + ("color" in tv), "<br>");//true
+        document.write("tv에 weight 속성 유무 : " + ("weight" in tv), "<br>");//false
+        document.write("tv에 weight 값 확인 : " + tv.weight, "<br>");//undefined
+
+        document.write("<hr>");
+        //=============================
+        //속성의 삭제 : delete 객체.속성명
+        delete tv.color;
+        document.write("tv에 color 속성 유무 (삭제 후) : " + ("color" in tv), "<br>");//false
+
+        document.write("<hr>");
+        //객체의 속성값 사용 방식2 : 객체["속성명"] - 속성명으로 변수값 사용 가능 
+        document.write('tv["width"] : ' + tv["width"], "<br>");
+        document.write('tv["height"] : ' + tv["height"], "<br>");
+
+        let sizeV = "height";
+        document.write("tv[sizeV] : " + tv[sizeV], "<br>");
+        document.write("<hr>");
+
+        //tv 객체의 속성 확인 ==================
+        for (let prop in tv){
+            document.write("tv 속성 확인 - " + prop + " : " + tv[prop], "<br>");
+        }
+        //prop 변수 새로 만들어서 그 안에 넣어주고 tv[prop] 으로 출력해준다?
+
+        document.write("<hr>");
+        //객체 선언 및 생성방식2 
+        // ** 이 구조 꼭 기억 ** (JS Object 사용방식)
+        //== JSON (JavaScript Object Notation)
+        // : 속성-값 쌍( attribute–value pairs and array data types (or any other serializable value)) 또는 "키-값 쌍"으로 이루어진 데이터 오브젝트를 전달하기 위해 인간이 읽을 수 있는 텍스트를 사용하는 개방형 표준 포맷이다
+        var tv2 = {
+            width : 1100, //꼭! ,로 구분!!!
+            //(키) : (값)
+            height : 710,
+            color : "black",
+            on : function(){ //<p>태그 사용!</p>
+                document.write("<p>전원 on!!!</p>");
+            },
+            off : function(){
+                document.write("<p>전원 off!!!</p>");
+            },
+            size : function(){
+                document.write("<p>크기 : "+ this.width + " x " + this.height + "</p>");
+            }//width값 사용하려면 this키워드 사용해야 한다 ( 이 객체 안에 있기 때문에! )****
+        };//중괄호 하면 이 자체로 object가 된다
+        document.write("typeof tv2 : " + typeof tv2, "<br>");
+        document.write("tv2.width : " + tv2.width, "<br>");
+        document.write("tv2.heigth : " + tv2.heigth, "<br>");
+        tv2.size(); //size는 함수니까 이렇게 호출
+        tv2.on();
+        tv2.off();
+        //<p>태그 사용해서 자동 줄바꿈 되긴한다 
+
+
+    </script>
+</head>
+<body>
+    
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
