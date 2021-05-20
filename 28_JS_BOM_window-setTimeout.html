@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>window.setTimeout()</title>
+    <script>
+        //window.setTimeout : 정해진 시간에 한 번만! 동작
+        //window.setTimeout(액션, 밀리초) : 밀리초 동안 대기 -> 밀리초 시간 후에 액션을 한 번만!! 실행
+        //window.clearTimeout(타이머객체) : 타이머 객체 실행 취소
+        var i = 1;
+        console.log(">>> setTimeout 으로 특정시간 후에 한 번 실행");
+        var timeout = setTimeout("console.log('5초 뒤에 출력 : ' + i++)", 5000); //얘는 자동으로 멈춤
+        // var timeout = setInterval("console.log('5초 뒤에 출력 : ' + i++)", 5000); //interval은 5초 마다 찍음 - clearInterval 해줘야 멈춤
+
+    </script>
+</head>
+<body>
+    <h2>window.setTimeout() 알아보기</h2>
+    <button onclick="clearTimeout(timeout)">clearTimeout() 정지버튼 </button>
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

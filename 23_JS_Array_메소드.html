@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Array 메소드</title>
+    <script>
+        //배열(Array) 메소드
+        var arr = ["사당", "교대", "방배", "강남"];
+        document.write("arr : " + arr + "<br>");
+        document.write("arr.toString() : " + arr.toString() + "<br>"); //메소드
+        document.write("arr.length : " + arr.length + "<br>");//JS에서는 속성(property)라고 한다?
+        document.write("<hr>");
+
+        //includes  : 배열에 데이터의 존재 여부 확인
+        document.write("arr.includes('사당') : " + arr.includes('사당') + "<br>"); //메소드
+        document.write("arr.includes('분당') : " + arr.includes('분당') + "<br>"); //메소드
+
+        //sort() : 배열에 있는 데이터를 오름차순 정렬(문자열 비교 처리)
+        document.write("arr : " + arr + "<br>");
+        var result = arr.sort();
+        document.write("arr.sort() 실행 후 배열값  : " +  arr + "<br>");
+        document.write("리턴값(result) : " + result + "<br>");
+        console.log("result : " + result);
+        console.log(result)
+        document.write("<hr>");
+
+        //reverse() : 배열 데이터 앞 <-> 뒤
+        document.write("사용 전 (arr) : " + arr, "<br>");
+        result = arr.reverse();
+        document.write("arr.reverse() 실행 후"+ "<br>");
+        document.write("실행 후(arr) : "  + arr + "<br>");
+        document.write("리턴값(result) : " + result + "<br>");
+        document.write("<hr>");
+
+        //slice(idx1, idx2) : idx1부터 idx2 이전까지 자르기
+        result = arr.slice(1,3);
+        document.write("arr.slice(1,3) 실행 후"+ "<br>");
+        document.write("실행 후(arr) : "  + arr + "<br>");
+        document.write("리턴값(result) : " + result + "<br>");
+        console.log("result : " + result);
+        console.log(result)
+        document.write("<hr>");
+
+        //splice(idx, n개 [, 데이터...]) : idx 위치에서 시작해서 n개 데이터 삭제 + [데이터 삽입]
+        document.write("사용전(arr) : " + arr + "<br>");
+        result = arr.splice(1,2);
+        //1부터 2개 삭제됨!! 
+        //result는 이게 삭제된 데이터다! 이렇게 보여줌 
+        document.write(" arr.splice(1,2) 실행 후"+ "<br>");
+        document.write("실행 후(arr) : "  + arr + "<br>");
+        document.write("리턴값(result) : " + result + "<br>");
+        console.log("result : " + result);
+        console.log(result)
+        document.write("<hr>");
+
+        document.write("사용전(arr) : " + arr + "<br>");
+        result = arr.splice(1,2, "잠실", "시청","신도림");
+        //이거는 1부터 2개 삭제하고 잠,실,신 추가
+        document.write(" arr.splice(1,2, '잠실', '시청','신도림') 실행 후"+ "<br>");
+        document.write("실행 후(arr) : "  + arr + "<br>");
+        document.write("리턴값(result) : " + result + "<br>");
+        console.log("result : " + result);
+        console.log(result)
+        document.write("<hr>");
+
+        //concat(추가할 데이터) : 데이터 붙이기
+        document.write("사용전(arr) : " + arr, "<br>");
+        var arr2 = ["종로1가", "종로2가", "종로3가"];
+        result = arr.concat(arr2) ;
+        document.write("arr.concat(arr2) 실행 후"+ "<br>");
+        document.write("실행 후(arr) : "  + arr + "<br>");
+        document.write("리턴값(result) : " + result + "<br>");
+        console.log("result : " + result);
+        console.log(result)
+        document.write("<hr>");
+        //**주의할 점 !! : return 값 꼭 만들어서 사용해야 한다!!!
+        //return값 안 해주면 데이터 추가된 거 저장 안 된다
+
+        //concat(추가할 데이터) : 데이터 붙이기
+        document.write("사용전(arr) : " + arr, "<br>");
+        result = arr.concat("서강대", "강매") ;
+        document.write("arr.concat('서강대', '강매') 실행 후"+ "<br>");
+        document.write("실행 후(arr) : "  + arr + "<br>");
+        document.write("리턴값(result) : " + result + "<br>");
+        console.log(result)
+        document.write("<hr>");
+
+        //concat(추가할 데이터) : 데이터 붙이기
+        document.write("사용전(arr) : " + arr, "<br>");
+        document.write(arr.concat("서강대", "강매")+ "<br>");
+        document.write("실행 후(arr) : "  + arr + "<br>");
+        document.write("리턴값(result) : " + result + "<br>");
+        console.log(result)
+        document.write("<hr>");
+
+        //==================
+        //pop, push, shift, unshift (맨 앞쪽에 있는 데이터 꺼낸다)
+
+        //pop() : 배열의 마지막 인덱스 값 추출 후 삭제
+        //원본데이터 : 변경됨
+        document.write("사용전(arr)) : " + arr, "<br>");
+        result = arr.pop();
+        document.write("실행 후(arr) : "  + arr + "<br>");
+        document.write("리턴값(result) : " + result + "<br>");
+        console.log(result)
+        document.write("<hr>");
+
+        //push(추가할 데이터) : 배열의 맨 뒤에 데이터 추가
+        document.write("사용전(arr)) : " + arr, "<br>");
+        result = arr.push("push1", "push2");
+        document.write('---result = arr.push("push1", "push2") 실행 후 ---<br>');
+        document.write("실행 후(arr) : "  + arr + "<br>");
+        document.write("리턴값(result) : " + result + "<br>");
+        console.log(result)
+        document.write("<hr>");
+
+        //shift(데이터) : 배열의 맨 뒤에 데이터 추가(삽입)
+        document.write("사용전(arr)) : " + arr, "<br>");
+        result = arr.shift("shift1", "shift1");
+        document.write('---result = arr.shift("shift1", "shift1") 실행 후 ---<br>');
+        document.write("실행 후(arr) : "  + arr + "<br>");
+        document.write("리턴값(result) : " + result + "<br>");
+        console.log(result)
+        document.write("<hr>");
+
+        //unshift(데이터) : 배열의 맨 앞에 데이터 추가(삽입)
+        document.write("사용전(arr)) : " + arr, "<br>");
+        result = arr.unshift("unshift1", "unshift2");
+        document.write('---result = arr.unshift("unshift1", "unshift2") 실행 후 ---<br>');
+        document.write("실행 후(arr) : "  + arr + "<br>");
+        document.write("리턴값(result) : " + result + "<br>");
+        console.log(result)
+        document.write("<hr>");
+
+        //따로 따로 했을 경우!!
+        document.write("사용전(arr)) : " + arr, "<br>");
+        result = arr.unshift("unshift1");
+        result = arr.unshift("unshift2");
+        document.write('---result = arr.unshift("unshift1"), arr.unshift("unshift2") 따로 따로 실행 후 ---<br>');
+        document.write("실행 후(arr) : "  + arr + "<br>");
+        document.write("리턴값(result) : " + result + "<br>");
+        console.log(result)
+        document.write("<hr>");
+        // 결과값이 unshift2 , unshift1 이 순서대로 들어간다.
+
+
+
+       
+
+    </script>
+</head>
+<body>
+    
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

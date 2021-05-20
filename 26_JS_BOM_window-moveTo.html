@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>window.moveTo</title>
+    <script>
+        
+    </script>
+</head>
+<body>
+    <h2>윈도우 열고 이동시키기</h2>
+    <button onclick="openwin()">윈도우 열기(window.open)</button>
+    <button onclick="moveToWin()">윈도우 이동(window.moveTo)</button>
+
+    <script>
+        window.document.write("<hr>");
+        document.write("<p>현재 메인 윈도우</p>");
+
+        var myWindow;
+        function openwin(){
+            // alert("openwin()실행"); 잘 실행되는 지 확인하고 지우기
+            myWindow = window.open("", "myWindow", "width=400, height=200");
+            //아무 것도 없는 껍데기 창만 뜸
+            myWindow.document.write("<p>새로 열린 윈도우</p>");
+            // myWindow 의! document 에 작성
+        }
+
+        function moveToWin(){
+            myWindow.moveTo(300,100); //T는 대문자! (left, top)값
+            // myWindow를 이동
+
+            // myWindow.moveTo(1920+300,100);
+            //화면 두개 사용하고 있으면 이렇게 다른 창으로 옮겨 줄 수도 있다.
+            
+            myWindow.focus();
+            //focus도 위로 올림
+        }
+
+
+
+    </script>
+    <!-- script가 밑에 있으니까 버튼이 만들어 지고 나서 실행? -->
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

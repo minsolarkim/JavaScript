@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Array forEach</title>
+    <script>
+        /* 배열 forEach 메소드
+        배열.forEach(콜백함수)
+        배열.forEach(function(element, index, array){});
+        - 첫번째 파라미터(element) : 배열요소(필수) 
+            ㄴ배열의 현재 처리되고 있는 데이터 
+        - 두번째 파라미터(index) : 인덱스번호(선택사항)
+        - 세번째 파라미터(array) : 배열 객체(선택사항)
+        ****************************/
+
+        var arr = ["사당", "교대", "방배", "강남"];
+        document.write("arr : " + arr + "<br>");
+        //-------------
+        //배열값 사용하기(요소만 사용해서 처리)
+        arr.forEach(function(element){
+            document.write(element, "-역 <br>");
+        });
+        document.write("arr : " + arr + "<br>");
+        document.write("<hr>");
+
+        //배열요소(인덱스)와 인덱스 사용--------------
+        document.write("arr : " + arr + "<br>");
+        arr.forEach(function(element, index){
+            arr[index] = element + "역";
+        });
+        document.write("::forEach문 실행 후 arr : " + arr, "<br>");
+        document.write("<hr>");
+
+        //배열.forEach(functin(element, index, array){});--------
+        document.write("원본 arr : " + arr + "<br>");
+        arr.forEach(function(element, index, arrObj){
+            //    여기에 쓰고싶은 변수명 쓰면 됨(명시적으로 쓰기)
+            arrObj[index] = element + index ;
+        });
+        document.write("::forEach문 실행 후 arr : " + arr, "<br>");
+        document.write("<hr>");
+
+        //--------arr.forEach(arrCallBack);-----------
+        // 이렇게 만들어 놓고 불러다가 써도 된다!
+        function arrCallBack(element, index, array){
+            array[index] = index+1 +"-"+ element;
+        }
+        arr.forEach(arrCallBack);
+        document.write("::forEach문 실행 후 arr : " + arr, "<br>");
+        document.write("<hr>");
+
+    </script>
+</head>
+<body>
+    
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

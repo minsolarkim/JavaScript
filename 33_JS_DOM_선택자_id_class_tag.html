@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>DOM 선택자 : id, class, tag</title>
+    <script>
+        /* DOM 객체 선택시 사용할 메소드
+        document.getElementById('id명') : id 속성 요소 1개 리턴
+        document.getElemetsByClassName('클래스명') : class 속성명에 해당 요소들 리턴(배열형태)
+        document.getElemetsByTagName('태그명') : 태그(tag)명에 해당 요소들 리턴(배열형태)
+        //----------------------
+        document.querySelector("선택자") : 선택자에 의해 선택된 첫번째 요소 리턴
+        document.querySelectorAll("선택자") : 선택자에 의해 선택된 모든 요소 리턴(배열형태)
+        *******/
+
+        //HTML 태그 읽고 해석된 상태가 아니므로 DOM 객체 컨트롤  불가능
+        var title = document.getElementById('title');
+        console.log("body 시작 title : " + title);
+
+        //컨트롤 불가능 하기 때문에 이렇게 해주기
+        //브라우저 문서가 모두 로딩 완료되면 발생하는 이벤트 onload에 콜백함수 등록
+        window.onload = function(){
+            //document.getElementById('id명') : id 속성 요소 1개 리턴
+            var title = document.getElementById('title');
+            console.log("onload title : " + title);
+
+            // document.getElementById('title').style.color = "red";
+            //.style.color = ""; 이렇게 하면 CSS랑 같다 
+
+            //이게 더 간단?
+            title.style.color = "red";
+            title.style.backgroundColor = "powderblue";
+            //CSS 랑 다른 점  - CSS : background-color
+
+            //==============================================
+            //document.getElemetsByClassName('클래스명') : class 요소들(배열형태 리턴 - 여러개 온다는 것)
+
+            var clFoodList = document.getElementsByClassName('foodList');
+            clFoodList[0].style.backgroundColor = "pink";
+            //Cannot set property 'backgroundColor' of undefined
+            //==>배열이기 때문에 순서 지정해줘야함 !
+            //만약에 내용이 하나여도 [0] 해줘야함
+            document.getElementsByTagName("h1")[0].style.color = "lightgreen";
+            //위랑 같음 
+            clFoodList[1].style.backgroundColor = "lightgreen";
+            var clTitleY = document.getElementsByClassName('title_y');
+            clTitleY[0].style.backgroundColor = "orange";
+
+            //===============================================
+            //document.getElemetsByTagName('태그명') : 태그명으로 찾기(배열형태 리턴)
+            document.getElementsByTagName("h1")[0].style.color = "navy"; //원래는 이렇게
+            // var h1 = document.getElementsByTagName('h1');
+            // h1[0].style.color = "navy";
+            //그냥 h1 하면 안됨 ---- h1[0] ****
+
+            //==========================
+            //id명으로 요소 찾기
+            var div1 = document.getElementById("food_1");
+            div1.style.border = "1px solid black";
+            // div1.style.fontSize = "2rem";
+            div1.style.backgroundColor = "lightgray";
+
+            var div2 = document.getElementById("food_2");
+            div2.style.border = "2px dashed green";
+            div2.style.backgroundColor = "lightgray";
+
+            //태그명으로 찾기
+            var list = document.getElementsByTagName("li");
+            list[2].style.backgroundColor = "gray";
+
+            //체이닝방식으로 연속 적용  ==> 잘 안됨 ㅠ
+            var foodList = document.getElementById("food_1").getElementsByTagName("li")[1];
+            foodList.style.backgroundColor = "aqua";
+            foodList.style.color = "red";
+
+            //=============
+            //document.querySelector("선택자") : 선택자에 의해 선택된 첫번째 요소 리턴
+            var selOne = document.querySelector("div > h2");
+            selOne.style.backgroundColor = "gray";
+
+            //document.querysSelectAll("선택자") : 선택자에 의해 선택된 모든 요소 리턴(배열형태)
+            var selAll = document.querySelectorAll("div > h2");
+            selAll[0].style.border = "3px solid blue";
+            selAll[1].style.border = "3px solid blue";
+
+            for(let i =0; i<selAll.length; i++){
+                selAll[i].style.fontSize = "3em";
+            }
+
+        };
+    </script>
+</head>
+<body>
+    <h1> 좋아하는 음식 </h1>
+    <h2>한식, 양식</h2>
+    <div id="food_1">
+        <h2 id="title">한식</h2>
+        <ol class="foodList">
+            <li>
+                <a href="#">김치</a>
+            </li>
+            <li>불고기</li>
+            <li>비빔밥</li>
+        </ol>
+    </div>
+    <div id="food_2">
+        <h2 class="title_y">양식</h2>
+        <ol class="foodList">
+            <li>돈까스</li>
+            <li>파스타</li>
+        </ol>
+    </div>
+
+    <script>
+        //HTML 태그 읽고 해석된 상태로 DOM 객체 컨트롤 가능
+        var title = document.getElementById('title');
+        console.log("body 끝 title : " + title);
+    </script>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
+<!-- 통상적으로 script를 head에 입력한다? -->
