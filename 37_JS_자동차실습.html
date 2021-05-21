@@ -1,0 +1,173 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>자동차 실습</title>
+    <style>
+        #carZone {
+            width: 600px;
+            margin: auto; /*중앙 정렬*/
+            border : 1px solid gray;
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+        }
+        #car {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        #car th, #car td {
+            border : 1px solid black;
+            text-align: center;
+        }
+        #car thead {
+            background-color: gray;
+        }
+        #totalTxt {
+            background-color: gray;
+
+        }
+        #total {
+            border : none;
+            text-align: center;
+            font-size: 1.5rem;
+            background-color: coral;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        /* #carZone{
+            text-align: center;
+        }
+        #car {
+            margin-left: auto;
+            margin-right: auto;
+            border : 1px solid black;
+        }
+        table > thead {
+            background-color: gray;
+        }
+        #totalTxt {
+            font-size: 1.3rem;
+            background-color: orange;
+            font-weight: bold;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        tr, td, th {
+            border : 1px solid black;
+        } */
+    </style>
+    <script>
+        //check된 금액 + 2000만원
+        let totalValue = 0; //기본차량가액 + 옵션금액
+        let totalTag; //최종차량가액 표시할 객체
+        window.onload = function(){ //콜백함수
+            //온로드 안 하면 값을 못 찾음 
+            totalTag = document.getElementById("total");
+            totalValue = parseInt(totalTag.value); //숫자지만 읽어오면 text임 =-=> 형변환 해줘야함
+            // console.log(totalValue + 9000);
+            //이렇게 하면 "2000000" + "9000" = "20000009000" 
+            console.log("totalValue : " + totalValue);
+        };
+        function compute(opt){
+            console.log("compute() 실행 : " + opt.id );
+            let optValue = parseInt(opt.value);
+            //이렇게 해야 숫자로 가져옴!!_!!
+            console.log("optValue : " + optValue);
+            if(opt.checked){ //체크상태 : 금액 더하기
+                totalValue += optValue;
+            }else{          //체크 해제 상태 : 금액 빼주기
+                totalValue -= optValue;
+            }
+            console.log("totalValue : " + totalValue);
+
+            //화면에 결과값 표시
+            totalTag.value = totalValue;
+        }
+
+        /**
+        window.onload = function(){
+
+            let car = document.getElementById("car");
+            let opt1 =document.getElementById("opt1");
+            let opt2 = document.getElementById("opt2");
+            let opt3 = document.getElementById("opt3");
+            let total = document.getElementById("total");
+
+            document.car.opt1.onclick = plusOpt1;
+
+            function plusOpt1(){
+                console.log("opt1.콜백함수 this.id : " + this.id);
+            };
+
+            if(opt1.checked){
+                total.value += opt1.value; 
+            }else{
+                total.value -= opt1.value;
+            }
+        }
+        **/
+    </script>
+</head>
+<body>
+    <div id="carZone">
+        <h1>자동차 견적</h1>
+        <p><img src="images/volvo.jpg" alt="자동차이미지" ></p>
+
+        <table id="car">
+            <colgroup>
+                <col width="50%">
+                <col width="30%">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>옵션</th>
+                    <th>추가가격</th>
+                    <th>선택여부</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>인조가죽시트</td>
+                    <td>300,000</td>
+                    <td>
+                        <input type="checkbox" value="300000" id="opt1" class = "opt" onclick="compute(this)"> 
+                        <!-- onclick을 넣어버리는 inline 방식도 있다 -->
+                    </td>
+                </tr>
+                <tr>
+                    <td>네비게이션</td>
+                    <td>400,000</td>
+                    <td>
+                        <input type="checkbox" value="400000" id="opt2" class = "opt" onclick="compute(this)">
+                    </td>
+                </tr>
+                <tr>
+                    <td>썬루프</td>
+                    <td>500,000</td>
+                    <td>
+                        <input type="checkbox" value="500000" id="opt3" class = "opt" onclick="compute(this)">
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td id="totalTxt">차량금액(옵션포함)</td>
+                    <td colspan="2" >
+                        <input type="text" value="20000000" id="total" >
+                    </td>
+                    <!-- 컬럼 두개 합해졌으니까 colspan -->
+                </tr>
+            </tfoot>
+        </table>
+
+
+
+
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

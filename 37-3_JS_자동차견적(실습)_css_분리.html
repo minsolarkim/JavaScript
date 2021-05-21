@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>자동차 실습 ver2 이렇게도 할 수 있다</title>
+    <link href="css/car.css" rel="stylesheet" type="text/css">
+    <script>
+        var initValue = 0; //차량 기본 가액(옵션없는)
+        var totalValue = 0; //차량가액 + 옵션금액
+        var totalTag; //합계금액 표시할 input 객체 저장
+        window.onload = function(){
+            totalTag = document.getElementById("total");
+            initValue = parseInt(totalTag.value);
+            console.log("initValue : " + initValue);
+
+            //클래스명으로 옵션 대상요소 찾기
+            // 1) var opts = document.getElementsByClassName("opt");
+            opts = document.querySelector(".opt"); 
+            //클래스명이니까 .찍고 적어야함 // 하나만 찾음
+            opts = document.querySelectorAll(".opt");
+            // ㄴ(2) 두 가지 방법이 있고 둘다 써도 된다!
+
+            console.log(opts);
+            console.log("opts.length" + opts.length);
+            
+            //이벤트 연결하기 
+            for(let i = 0; i < opts.length; i++){
+                console.log(opts[i].id); //확인용
+                //id찍으면 opt1, opt2, opt3 이렇게 나온당
+                opts[i].onclick = fnComputeTotal;
+            }
+        };
+        //옵션에 체크된 금액만 모두 더하기
+        function fnComputeTotal(){
+            //여기서 할 일은 전체 계산하기
+            // alert("클릭이벤트 연결 - " + this.id);---확인용
+            totalValue = initValue; //기본가액으로 시작
+            //initValue가 변하면 안되기 때문에 totalValue에 넣는다
+            //옵션값 추가
+            for(let optTag of opts){
+                if(optTag.checked){
+                    totalValue += parseInt(optTag.value);
+                }
+            }
+            console.log("옵션 반영 후 totalValue : " + totalValue);
+            //계산 결과 화면 표시
+            totalTag.value = totalValue;
+        };
+    </script>
+</head>
+<body>
+    <div id="carZone">
+        <h1>자동차 견적</h1>
+        <p><img src="images/volvo.jpg" alt="자동차이미지" ></p>
+
+        <table id="car">
+            <colgroup>
+                <col width="50%">
+                <col width="30%">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>옵션</th>
+                    <th>추가가격</th>
+                    <th>선택여부</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>인조가죽시트</td>
+                    <td>300,000</td>
+                    <td>
+                        <input type="checkbox" value="300000" id="opt1" class = "opt" > 
+                        <!-- onclick을 넣어버리는 inline 방식도 있다 -->
+                    </td>
+                </tr>
+                <tr>
+                    <td>네비게이션</td>
+                    <td>400,000</td>
+                    <td>
+                        <input type="checkbox" value="400000" id="opt2" class = "opt" >
+                    </td>
+                </tr>
+                <tr>
+                    <td>썬루프</td>
+                    <td>500,000</td>
+                    <td>
+                        <input type="checkbox" value="500000" id="opt3" class = "opt" >
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td id="totalTxt">차량금액(옵션포함)</td>
+                    <td colspan="2" >
+                        <input type="text" value="20000000" id="total" >
+                    </td>
+                    <!-- 컬럼 두개 합해졌으니까 colspan -->
+                </tr>
+            </tfoot>
+        </table>
+
+
+
+
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

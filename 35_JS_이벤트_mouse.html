@@ -11,12 +11,28 @@
         window.onload = function(){
             var imgbtn = document.getElementById("imgbtn");
             //우리가 찾은 건 a태그
-            imgbtn.onmouseover = function(){//콜백함수로 등록 해놓음
+            //이벤트 속성에 콜백함수 등록
+            /*imgbtn.onmouseover = function(){//콜백함수로 등록 해놓음
                 imgbtn.firstElementChild.src = "images/btn2_yellow.png";                
             }
             imgbtn.onmouseout = function(){//콜백함수로 등록 해놓음
                 imgbtn.firstElementChild.src = "images/btn2_gray.png";                
+            }****/
+            //-----------------
+            //addEventListner : 이벤트 중복 설정 가능
+            //addEventListner("이벤트명", 콜백함수)
+            //removeEventListner("이벤트명")
+            imgbtn.addEventListener("mouseover", function(){
+                imgbtn.firstElementChild.src = "images/btn2_yellow.png";
+            });
+            imgbtn.addEventListener("mouseout", changeGray);
+            
+            function changeGray(){
+                imgbtn.firstElementChild.srx = "imges/btn2_gray.png";
             }
+
+            imgbtn.removeEventListener("mouseout", changeGray);
+            
         }
     </script>
     <style>
