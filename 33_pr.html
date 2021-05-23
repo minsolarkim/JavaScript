@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>DOM 선택자 : id, class, tag</title>
+    <script>
+        /* DOM 객체 선택시 사용할 메소드
+        document.getElementById('id명') : id 속성 요소 1개 리턴
+        document.getElementsByClassName('클래스명') : class 속성명에 해당 요소들 리턴 (배열 형태)
+        document.getElementsByTagName('태그명') :태그 명에 해당 요소들 리턴 (배열 형태)
+        //-------------------
+        document.querySelector("선택자") : 선택자에 의해 선택된 첫번째 요소 리턴
+        document.querySelectorAll("선택자") : 선택자에 의해 선택된 모든 요소 리턴(배열형태)
+
+        ***/
+
+        //HTML 태그 읽고 나서 해석된 상태가 아니므로 DOM 객체 컨트롤 불가능
+        var title = document.getElementById('title');
+        console.log("body 시작 title : " + title); //null
+
+
+        //그래서 window.onload = function(){}; 해줘야함
+
+        window.onload = function(){
+
+        // 1 - id로 찾기
+        var title = document.getElementById('title');
+        console.log("body 시작 title : " + title);
+        var title2 = document.getElementById('title2');
+        console.log("body 시작 title2 : " + title2);
+
+        title.style.color = "red";
+        title2.style.color = "green";
+
+        // 2 - class로 찾기
+        var clFoodList = document.getElementsByClassName("foodList");
+        console.log("clFoodList : " + clFoodList);
+        // clFoodList.style.backgroundColor = "pink";
+        //**배열형태이므로 순서 지정해줘야함
+        //background-color 아니고 낙타표기법 해서 Color로 해주기 = "";
+        clFoodList[0].style.backgroundColor = "pink";
+        clFoodList[1].style.backgroundColor = "lightgreen";
+
+        document.getElementsByClassName("foodList")[0].style.border = "1px solid gray";
+        //이렇게 해줄 수도 있음!
+
+        // 3 - tag 로 찾기 -- 배열형태이므로 순서지정 !!
+        var li = document.getElementsByTagName("li");
+
+        for(let i = 0; i <li.length; i++){
+            li[i].style.border = "2px solid black";
+        }
+        // li[0].style.border = "2px solid darkgray";
+
+        //----------------------
+        //document.querySelector("선택자") : 선택자에 의해 선택된 첫번째 요소 리턴
+        var selOne = document.querySelector("div");
+        selOne.style.backgroundColor = "hotpink";
+
+        //document.querySelectAll("선택자") : 선택자에 의해 선택된 모든 요소 리턴(배열형태)
+        var selAll = document.querySelectorAll("ol li");
+        selAll[0].style.backgroundColor = "gray";
+        selAll[1].style.backgroundColor = "gray";
+        
+        for(let i in selAll){
+            selAll[i].style.backgroundColor = "gray";
+        }
+
+
+
+        }
+
+    </script>
+</head>
+<body>
+    <h1>좋아하는 음식</h1>
+    <h2>한식, 양식</h2>
+    <div id="food_1">
+        <h2 id="title">한식</h2>
+        <ol class = "foodList">
+            <li>
+                <a href = "#">김치</a>
+            </li>
+            <li>불고기</li>
+            <li>김밥</li>
+        </ol>
+    </div>
+    <div id="food_2">
+        <h2 id="title2">양식</h2>
+        <ol class="foodList">
+            <li>돈까스</li>
+            <li>파스타</li>
+        </ol>
+    </div>
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

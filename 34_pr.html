@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>DOM 인접 관계 선택자</title>
+    <script>
+        /* 인접 관계 선택자
+        parentNode : 부모노드 선택
+        childNodes : 모든 자식 노드들 선택(배열)
+        children : 자식 요소들 (배열)
+        firstChild : 첫번째 자식노드
+        previousSibling : 이전 형제 노드 (태그, 태그 이외 노드 포함)
+(?)
+        nextSibling : 다음 형제 노드
+        previousElementSibling : 이전 형제 요소(태그만)
+        nextElementSibling : 다음 형제 요소(태그만)
+        ***/
+        window.onload = function(){
+            var child1 = document.getElementById("div1").firstElementChild;
+            console.log(child1);
+            child1.style.color = "green";
+            child1.innerHTML = "내용1 - 변경됨"; // 내용 수정
+
+            var p2 = document.getElementsByTagName("p")[1];
+            console.log("p2 : " + p2);
+            p2.style.color = "red";
+
+            p2.previousElementSibling.style.color = "yellow";
+            //previousSibling 하면 안 됨!  why?
+
+            //-----------------------------
+            var div1 = document.getElementById("div1");
+            console.log(div1.getAttribute('id'));
+
+            var div = document.getElementsByTagName("div");
+            console.log(div[0].getAttribute('p'));
+
+            //--------------------
+            console.log("div1.children.length : "+ div1.children.length); 
+            console.log("div[1].children.length : "+ div[1].children.length); 
+
+            // 아직 다 터득하지 못함 
+            for(let i = 0; i<div1.children.length; i++){
+                div1.children[i].style.border = "3px solid red";
+            }
+
+            div.style.border = "3px dotted orange";
+            // div.style.border = "3px dotted orange"
+            
+        };
+        
+    </script>
+</head>
+<body>
+    <h2>DOM 인접 관계 선택자</h2>
+    <div id="div1" title ="내용묶음div">
+        <p>내용1</p>
+        <p>내용2</p>
+        <p>내용3</p>
+        <p>내용4</p>
+        <div>
+            <p>div-p 내용5</p>
+        </div>
+    </div>
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

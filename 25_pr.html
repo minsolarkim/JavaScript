@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>BOM window</title>
+    <style>
+        .open {
+            background-color: lightgreen;
+        }
+    </style>
+    <script>
+        /* BOM (Browser Object Model)
+        window 객체의 메소드(function)
+        open() : 새 창을 열 때 (만들 때) 사용
+        open(URL, 명칭, 출력형태옵션)
+        <출력형태옵션>
+        width, height, top, left : 크기와 위치 지정 (px)
+        location : 주소 입력창 유무(yes, no, 1, 0)
+        resizable : 크기조절 허용 여부
+        statud : 상태 표시줄
+        scrollbar : 스크롤바 여부
+        ***/
+
+        function windowOpen(){
+            alert("windowOpen() 실행");
+            var pop = window.open("http://www.naver.com","pop1", "width = 500, height = 400, left = 1500, top=100, menubar=1, status=1, toolbar =1, location=1");
+        }
+
+        function windowOpen_img(){
+            alert("windowOpen_img() 실행");
+            let img = window.open("24_pr.html", "24_pr", "width=600","height=600", "left=400", "top=400");
+        }
+
+
+    </script>
+</head>
+<body>
+    <h2>BOM window.open()</h2>
+    <button onclick="windowOpen()" class="open"> Naver 창 열기</button>
+    <!-- <button onclick="windowOpen()"> Naver 창 열기</button> -->
+
+    <button onclick="windowOpen_img()">img 창 열기</button>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
